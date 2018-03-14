@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { StoreApiProvider } from '../../providers/store-api/store-api';
+import { StorePage } from '../store/store';
 
 @Component({
   selector: 'page-storesbychain',
@@ -8,7 +9,8 @@ import { StoreApiProvider } from '../../providers/store-api/store-api';
 })
 export class StoresByChainPage {
 
-  public stores: any;
+  public storeChain:any;
+  public stores = [];
 
   constructor(
     public navCtrl: NavController, 
@@ -17,10 +19,14 @@ export class StoresByChainPage {
   }
 
   ionViewDidLoad() {
-    let selectedStoreChain = this.navParams.data;
+    this.storeChain = this.navParams.data;
     this.storeApi
-      .getStoresByChainId(selectedStoreChain.Id)
+      .getStoresByChainId(this.storeChain.id)
       .then(data => this.stores = (<any>data).data);
+  }
+
+  itemTapped($event, store){
+    this.navCtrl.push(StorePage, store);
   }
 
 }

@@ -9,8 +9,7 @@ import { StoresByChainPage } from '../storesbychain/storesbychain';
 })
 export class StoreChainsPage {
 
-  public storeChains:any;
-  public selectedItem:any;
+  public storeChains = [];
 
   constructor(
     public navCtrl: NavController, 
@@ -25,7 +24,6 @@ export class StoreChainsPage {
   }
 
   itemTapped($event, storeChain){
-    this.selectedItem = storeChain;
     this.navCtrl.push(StoresByChainPage, storeChain);
   }
 }

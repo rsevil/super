@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="store">{{store.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="storeDetail">
+    <p><b>{{storeDetail.name}}</b></p>
+    <p><b>{{storeDetail.latitude}}</b></p>
+    <p><b>{{storeDetail.longitude}}</b></p>
+    <p><b>{{storeDetail.address}}</b></p>
+  </div>
+</ion-content>

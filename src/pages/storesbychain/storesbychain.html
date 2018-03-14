@@ -7,12 +7,15 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>storesbychain</ion-title>
+    <ion-title>Select Store</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-list>
+    <button *ngFor="let item of stores" ion-item (click)="itemTapped($event, item)">
+        {{item.name}}
+    </button>
+  </ion-list>
 </ion-content>
