@@ -1,19 +1,19 @@
-import { HttpClient } from '@angular/common/http';
-import { Http, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { ConfigProvider } from '../config/config';
 
 @Injectable()
 export class StoreApiProvider {
 
-  private baseUrl = 'http://localhost:5490/api'
-
-  constructor(public http: Http) {
+  constructor(
+    public http: Http,
+    public config: ConfigProvider) {
   }
 
   getStoresByChainId(storeChainId){
     return new Promise(resolve =>
       this.http
-        .get(`${this.baseUrl}/store`, {
+        .get(`${this.config.get().api.baseUrl}/store`, {
           params: { 
             'ChainId': storeChainId, 
             'PageParams.StartIndex': 0, 
@@ -26,7 +26,7 @@ export class StoreApiProvider {
   getStoreDetail(storeId){
     return new Promise(resolve => 
       this.http
-      .get(`${this.baseUrl}/store/detail`, {
+      .get(`${this.config.get().api.baseUrl}/store/detail`, {
         params: { 
           'id': storeId
         } 

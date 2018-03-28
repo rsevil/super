@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { StoreChainApiProvider } from '../../providers/store-chain-api/store-chain-api';
 import { StoresByChainPage } from '../storesbychain/storesbychain';
 
@@ -14,13 +14,21 @@ export class StoreChainsPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private storeChainApi: StoreChainApiProvider) {
+    private storeChainApi: StoreChainApiProvider,
+    public loadingController: LoadingController) {
   }
 
   ionViewDidLoad(){
-    this.storeChainApi
-      .getStoreChains()
-      .then(data => this.storeChains = (<any>data).data)
+    let loader = this.loadingController.create({
+      content: 'Loading Store Chains...'
+    });
+
+    loader.present().then(() => {
+      this.storeChainApi.getStoreChains().then(data => {
+          this.storeChains = (<any>data).data
+          loader.dismiss();
+        });
+    });
   }
 
   itemTapped($event, storeChain){

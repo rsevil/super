@@ -6,17 +6,17 @@
     <ion-title>Supermerca2</ion-title>
   </ion-navbar>
   <ion-toolbar color="secondary">
-    <ion-title>Select Store Chain</ion-title>
+    <ion-title>Select Product</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <button *ngFor="let item of storeChains" ion-item (click)="itemTapped($event, item)">
+    <button *ngFor="let item of products" ion-item (click)="itemTapped($event, item)">
         {{item.name}}
     </button>
   </ion-list>
-  <div *ngIf="storeChains.length == 0" padding>
+  <div *ngIf="products.length == 0" padding>
     There are no Store Chains to select
   </div>
 </ion-content>

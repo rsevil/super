@@ -4,6 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { StoreChainsPage } from '../pages/storechains/storechains';
+import { ProductsPage } from '../pages/products/products';
+import { ProductListsPage } from '../pages/productlists/productlists';
 
 @Component({
   templateUrl: 'app.html'
@@ -11,13 +13,10 @@ import { StoreChainsPage } from '../pages/storechains/storechains';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = StoreChainsPage;
-
-  pages: Array<{title: string, component: any}>;
+  rootPage: any = ProductListsPage;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
   }
 
   initializeApp() {
@@ -29,9 +28,15 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+  goToHome(){
+    this.nav.popToRoot();
+  }
+
+  goToProducts(){
+    this.nav.push(ProductsPage);
+  }
+
+  goToStoreChains(){
+    this.nav.push(StoreChainsPage);
   }
 }

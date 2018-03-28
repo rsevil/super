@@ -12,13 +12,21 @@ import { StoresByChainPage } from '../pages/storesbychain/storesbychain';
 import { StoreChainApiProvider } from '../providers/store-chain-api/store-chain-api';
 import { StoreApiProvider } from '../providers/store-api/store-api';
 import { StorePage } from '../pages/store/store';
+import { ConfigProvider } from '../providers/config/config';
+import { ProductsPage } from '../pages/products/products';
+import { ProductApiProvider } from '../providers/product-api/product-api';
+import { ProductPage } from '../pages/product/product';
+import { ProductListsPage } from '../pages/productlists/productlists';
 
 @NgModule({
   declarations: [
     MyApp,
     StoreChainsPage,
     StoresByChainPage,
-    StorePage
+    StorePage,
+    ProductsPage,
+    ProductPage,
+    ProductListsPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,10 @@ import { StorePage } from '../pages/store/store';
     MyApp,
     StoreChainsPage,
     StoresByChainPage,
-    StorePage
+    StorePage,
+    ProductsPage,
+    ProductPage,
+    ProductListsPage
   ],
   providers: [
     StatusBar,
@@ -39,7 +50,9 @@ import { StorePage } from '../pages/store/store';
     HttpModule,
     GoogleMaps,
     StoreChainApiProvider,
-    StoreApiProvider
+    StoreApiProvider,
+    ProductApiProvider,
+    ConfigProvider
   ]
 })
 export class AppModule {}

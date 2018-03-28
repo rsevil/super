@@ -1,11 +1,11 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title *ngIf="store">{{store.name}}</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Store Detail</ion-title>
   </ion-navbar>
-
+  <ion-toolbar color="secondary">
+    <ion-title>{{store.name}}</ion-title>
+  </ion-toolbar>
 </ion-header>
-
 
 <ion-content padding>
   <div *ngIf="storeDetail">
@@ -14,4 +14,5 @@
     <p><b>{{storeDetail.longitude}}</b></p>
     <p><b>{{storeDetail.address}}</b></p>
   </div>
+  <div id="map_canvas"></div>
 </ion-content>

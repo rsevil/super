@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { StoreApiProvider } from '../../providers/store-api/store-api';
 
 import {
   GoogleMaps,
   GoogleMap,
   GoogleMapsEvent,
-  GoogleMapOptions,
-  CameraPosition,
-  MarkerOptions,
-  Marker
+  GoogleMapOptions
 } from '@ionic-native/google-maps';
 
 @Component({
@@ -26,15 +23,23 @@ export class StorePage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public storeApi: StoreApiProvider,
-    public googleMaps: GoogleMaps) {
+    public googleMaps: GoogleMaps,
+    public loadingController: LoadingController) {
+      this.store = this.navParams.data;
   }
 
   ionViewDidLoad() {
-    this.store = this.navParams.data;
-    this.storeApi
-      .getStoreDetail(this.store.id)
-      .then(data => this.storeDetail = data);
-    this.loadMap();
+    let loader = this.loadingController.create({
+      content:'Loading Store...'
+    });
+
+    loader.present().then(() => {
+      this.storeApi.getStoreDetail(this.store.id).then(data => {
+          this.storeDetail = data
+          this.loadMap();
+          loader.dismiss();
+        });
+    });
   }
 
   loadMap(){

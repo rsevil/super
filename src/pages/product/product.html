@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Product Detail</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="secondary">
+    <ion-title>{{product.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="productDetail">
+    <img src="{{productDetail.photoUrl}}" />
+  </div>
+</ion-content>
