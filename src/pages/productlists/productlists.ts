@@ -39,8 +39,4 @@ export class ProductListsPage {
     console.log('create Tapped');
   }
 
-  itemPressed($event, item){
-    console.log('item pressed');
-  }
-
 }
