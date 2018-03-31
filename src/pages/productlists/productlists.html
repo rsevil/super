@@ -12,5 +12,17 @@
 
 
 <ion-content>
-
+  <ion-fab bottom right>
+    <button ion-fab mini>
+      <ion-icon name="create" (tap)="createTapped($event)"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-list>
+    <button *ngFor="let item of productLists" ion-item (tap)="itemTapped($event, item)" (press)="itemPressed($event, item)">
+        {{item.name}}
+    </button>
+  </ion-list>
+  <div *ngIf="productLists.length == 0" padding>
+    There are no products to select
+  </div>
 </ion-content>

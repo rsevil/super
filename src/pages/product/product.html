@@ -8,7 +8,15 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="productDetail">
+  <ion-card *ngIf="productDetail">
     <img src="{{productDetail.photoUrl}}" />
-  </div>
+    <ion-card-content>
+      <ion-card-title>
+        {{productDetail.name}}
+      </ion-card-title>
+      <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam blandit mi rhoncus tortor dapibus, ut elementum diam efficitur. Donec pharetra enim dolor, non hendrerit dolor lacinia eleifend. Aliquam erat volutpat. Quisque tempor ligula iaculis, placerat lacus sed, dictum elit. Quisque ut tincidunt nisi, nec efficitur leo. Phasellus luctus dictum tortor, eu congue libero rhoncus id. Nulla consectetur feugiat dictum. Aenean felis quam, malesuada ac sem quis, rhoncus vestibulum velit. Ut scelerisque dictum ligula egestas rhoncus. Vivamus consequat tortor justo, vitae consequat massa elementum eu. Fusce ut felis et dui vehicula tempus. Integer dolor orci, facilisis ac dignissim et, finibus quis mi. Suspendisse ac nisl sit amet ante ultrices tempor sit amet non neque. Cras id elementum lorem, et tristique ipsum.
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

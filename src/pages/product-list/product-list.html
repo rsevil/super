@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Product List Detail</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="secondary">
+    <ion-title>{{productList.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="fruta" *ngIf="productListDetail">
+    <ion-card-header>
+      Products
+    </ion-card-header>
+    <ion-list>
+      <button ion-item *ngFor="let item of productListDetail.products" (tap)="itemTapped($event, item)">
+        {{item.name}}
+        <ion-badge item-end>{{item.quantity}}</ion-badge>
+      </button>
+    </ion-list>
+  </ion-card>
+</ion-content>

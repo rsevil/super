@@ -17,6 +17,8 @@ import { ProductsPage } from '../pages/products/products';
 import { ProductApiProvider } from '../providers/product-api/product-api';
 import { ProductPage } from '../pages/product/product';
 import { ProductListsPage } from '../pages/productlists/productlists';
+import { ProductListApiProvider } from '../providers/product-list-api/product-list-api';
+import { ProductListPage } from '../pages/product-list/product-list';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ProductListsPage } from '../pages/productlists/productlists';
     StorePage,
     ProductsPage,
     ProductPage,
-    ProductListsPage
+    ProductListsPage,
+    ProductListPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { ProductListsPage } from '../pages/productlists/productlists';
     StorePage,
     ProductsPage,
     ProductPage,
-    ProductListsPage
+    ProductListsPage,
+    ProductListPage
   ],
   providers: [
     StatusBar,
@@ -52,6 +56,7 @@ import { ProductListsPage } from '../pages/productlists/productlists';
     StoreChainApiProvider,
     StoreApiProvider,
     ProductApiProvider,
+    ProductListApiProvider,
     ConfigProvider
   ]
 })
