@@ -33,4 +33,29 @@ export class ProductListApiProvider {
       .subscribe(res => resolve(res.json())));
   }
 
+  addProductList(productList){
+    return new Promise(resolve => 
+      this.http
+        .post(`${this.config.get().api.baseUrl}/productlist`, productList)
+        .subscribe(res => resolve(res.json())));
+  }
+
+  updateProductList(productList){
+    return new Promise(resolve => 
+      this.http
+        .put(`${this.config.get().api.baseUrl}/productlist`, productList)
+        .subscribe(res => resolve(res.ok)));
+  }
+
+  deleteProductList(productListId){
+    return new Promise(resolve => 
+      this.http
+        .delete(`${this.config.get().api.baseUrl}/productlist`, { 
+          params: {
+            'id': productListId
+          } 
+        })
+        .subscribe(res => resolve(res.ok)));
+  }
+
 }

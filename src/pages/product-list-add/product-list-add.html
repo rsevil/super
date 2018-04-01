@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title *ngIf="editMode == false">Add Product List</ion-title>
+      <ion-title *ngIf="editMode == true">Edit Product List</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-input *ngIf="editMode" formControlName="id" type="hidden"></ion-input>
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <ion-list>  
+        <ion-list-header>
+          <ion-buttons end>
+              <h2 class="products-header">Products</h2>
+              <button ion-button icon-only color="royal" (tap)="createItem()">
+                <ion-icon name="add"></ion-icon>
+              </button>
+          </ion-buttons>
+        </ion-list-header>
+        <ion-item-sliding *ngFor="let product of productListProducts">
+            <ion-item>
+              {{product.name}}
+              <ion-badge item-end>{{product.quantity}}</ion-badge>
+            </ion-item>
+            <ion-item-options side="right">
+              <button ion-button color="primary" (tap)="editTapped($event, product)">
+                <ion-icon name="create"></ion-icon>
+                Edit
+              </button>
+              <button ion-button color="secondary" (tap)="deleteTapped($event, product)">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+              </button>
+            </ion-item-options>
+        </ion-item-sliding>
+        <div *ngIf="productListProducts.length == 0" padding>
+            There are no products selected for this list, please create one or more
+        </div>
+      </ion-list>
+  </form>
+  <button ion-button full color="primary" (click)="save()">
+    Save Product List
+  </button>
+</ion-content>

@@ -1,0 +1,14 @@
+page-product-list-add {
+
+}
+
+h2.products-header{
+    float:left;
+    display: inline;
+    margin: 2% 0 !important;
+    color: map-get($colors, primary);
+}
+
+// ion-input[formControlName="id"]{
+//     display: none;
+// }

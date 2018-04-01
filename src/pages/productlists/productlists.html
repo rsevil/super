@@ -13,8 +13,8 @@
 
 <ion-content>
   <ion-fab bottom right>
-    <button ion-fab mini>
-      <ion-icon name="create" (tap)="createTapped($event)"></ion-icon>
+    <button ion-fab>
+      <ion-icon name="add" (tap)="createTapped($event)"></ion-icon>
     </button>
   </ion-fab>
   <ion-list>
@@ -23,11 +23,11 @@
           {{item.name}}
       </button>
       <ion-item-options side="right">
-        <button ion-button color="primary">
+        <button ion-button color="primary" (tap)="editTapped($event, item)">
           <ion-icon name="create"></ion-icon>
           Edit
         </button>
-        <button ion-button color="secondary">
+        <button ion-button color="secondary" (tap)="deleteTapped($event, item)">
           <ion-icon name="trash"></ion-icon>
           Delete
         </button>
@@ -35,6 +35,6 @@
     </ion-item-sliding>
   </ion-list>
   <div *ngIf="productLists.length == 0" padding>
-    There are no products to select
+    There are no product lists to select, please create one
   </div>
 </ion-content>

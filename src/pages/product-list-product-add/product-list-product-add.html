@@ -1,0 +1,19 @@
+<ion-content padding>
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label floating>Product</ion-label>
+        <ion-select formControlName="id" interface="action-sheet">
+          <ion-option *ngFor="let item of products" value="{{item.id}}">
+            {{item.name}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Quantity</ion-label>
+        <ion-input formControlName="quantity" type="number"></ion-input>
+      </ion-item>
+    </form>
+    <button ion-button full color="primary" (click)="save()">
+      Save Product
+    </button>
+</ion-content>
