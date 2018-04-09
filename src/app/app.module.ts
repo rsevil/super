@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
+import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { MyApp } from './app.component';
 
@@ -21,6 +22,7 @@ import { ProductListApiProvider } from '../providers/product-list-api/product-li
 import { ProductListPage } from '../pages/product-list/product-list';
 import { ProductListAddPage } from '../pages/product-list-add/product-list-add';
 import { ProductListProductAddPage } from '../pages/product-list-product-add/product-list-product-add';
+import { ProductListQuotePage } from '../pages/product-list-quote/product-list-quote';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { ProductListProductAddPage } from '../pages/product-list-product-add/pro
     ProductListsPage,
     ProductListPage,
     ProductListAddPage,
-    ProductListProductAddPage
+    ProductListProductAddPage,
+    ProductListQuotePage
   ],
   imports: [
     BrowserModule,
@@ -51,13 +54,15 @@ import { ProductListProductAddPage } from '../pages/product-list-product-add/pro
     ProductListsPage,
     ProductListPage,
     ProductListAddPage,
-    ProductListProductAddPage
+    ProductListProductAddPage,
+    ProductListQuotePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpModule,
+    Geolocation,
     GoogleMaps,
     StoreChainApiProvider,
     StoreApiProvider,

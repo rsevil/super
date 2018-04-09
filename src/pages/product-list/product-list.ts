@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ProductListApiProvider } from '../../providers/product-list-api/product-list-api';
 import { ProductPage } from '../product/product';
+import { ProductListQuotePage } from '../product-list-quote/product-list-quote';
 
 @Component({
   selector: 'page-product-list',
@@ -35,6 +36,10 @@ export class ProductListPage {
 
   itemTapped($event, item){
     this.navCtrl.push(ProductPage, item);
+  }
+
+  goToQuote(){
+    this.navCtrl.push(ProductListQuotePage, this.productListDetail);
   }
 
 }

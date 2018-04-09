@@ -58,4 +58,19 @@ export class ProductListApiProvider {
         .subscribe(res => resolve(res.ok)));
   }
 
+  getProductListQuote(productListId, latitude, longitude){
+    return new Promise(resolve => 
+      this.http
+      .get(`${this.config.get().api.baseUrl}/productlist/quote`, {
+        params: { 
+          id: productListId,
+          latitude: latitude,
+          longitude: longitude,
+          'PageParams.StartIndex': 0, 
+          'PageParams.Length': 999 
+        } 
+      })
+      .subscribe(res => resolve(res.json())));
+  }
+
 }
