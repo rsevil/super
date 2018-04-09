@@ -34,7 +34,7 @@ export class ProductListPage {
     });
   }
 
-  itemTapped($event, item){
+  productTapped($event, item){
     this.navCtrl.push(ProductPage, item);
   }
 

@@ -23,6 +23,7 @@ import { ProductListPage } from '../pages/product-list/product-list';
 import { ProductListAddPage } from '../pages/product-list-add/product-list-add';
 import { ProductListProductAddPage } from '../pages/product-list-product-add/product-list-product-add';
 import { ProductListQuotePage } from '../pages/product-list-quote/product-list-quote';
+import { ProductListQuoteDetailPage } from '../pages/product-list-quote-detail/product-list-quote-detail';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ProductListQuotePage } from '../pages/product-list-quote/product-list-q
     ProductListPage,
     ProductListAddPage,
     ProductListProductAddPage,
-    ProductListQuotePage
+    ProductListQuotePage,
+    ProductListQuoteDetailPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { ProductListQuotePage } from '../pages/product-list-quote/product-list-q
     ProductListPage,
     ProductListAddPage,
     ProductListProductAddPage,
-    ProductListQuotePage
+    ProductListQuotePage,
+    ProductListQuoteDetailPage
   ],
   providers: [
     StatusBar,

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ProductListApiProvider } from '../../providers/product-list-api/product-list-api';
+import { ProductListQuoteDetailPage } from '../product-list-quote-detail/product-list-quote-detail';
 
 @Component({
   selector: 'page-product-list-quote',
@@ -10,6 +11,7 @@ import { ProductListApiProvider } from '../../providers/product-list-api/product
 export class ProductListQuotePage {
 
   public productListDetail:any;
+  public productListQuotes = [];
 
   constructor(
     public navCtrl: NavController, 
@@ -33,9 +35,14 @@ export class ProductListQuotePage {
               position.coords.longitude)
           .then(data => {
               console.log(data);
+              this.productListQuotes = (<any>data).data;
               loading.dismiss();
           })
       }, err => console.log(err));
     });
+  }
+
+  itemTapped($event, item){
+    this.navCtrl.push(ProductListQuoteDetailPage, item);
   }
 }

@@ -1,6 +1,5 @@
 page-product-list {
-}
-
-ion-card.fruta ion-card-header {
-    color: map-get($colors, primary);
+    ion-card.title ion-card-header {
+        color: map-get($colors, primary);
+    }
 }

@@ -7,16 +7,21 @@
   </ion-navbar>
   <ion-toolbar color="secondary">
     <ion-title>Product Lists</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (tap)="createTapped($event)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-  <ion-fab bottom right>
+  <!-- <ion-fab bottom right>
     <button ion-fab>
       <ion-icon name="add" (tap)="createTapped($event)"></ion-icon>
     </button>
-  </ion-fab>
+  </ion-fab> -->
   <ion-list>
     <ion-item-sliding *ngFor="let item of productLists">
       <button (tap)="itemTapped($event, item)" ion-item>
