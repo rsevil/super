@@ -17,11 +17,6 @@
 
 
 <ion-content>
-  <!-- <ion-fab bottom right>
-    <button ion-fab>
-      <ion-icon name="add" (tap)="createTapped($event)"></ion-icon>
-    </button>
-  </ion-fab> -->
   <ion-list>
     <ion-item-sliding *ngFor="let item of productLists">
       <button (tap)="itemTapped($event, item)" ion-item>

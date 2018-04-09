@@ -27,14 +27,12 @@ export class ProductListQuotePage {
 
     loading.present().then(() => {
       this.geolocation.getCurrentPosition().then(position => {
-        console.log(position);
         this.productListApi
           .getProductListQuote(
               this.productListDetail.id,
               position.coords.latitude,
               position.coords.longitude)
           .then(data => {
-              console.log(data);
               this.productListQuotes = (<any>data).data;
               loading.dismiss();
           })
@@ -43,6 +41,10 @@ export class ProductListQuotePage {
   }
 
   itemTapped($event, item){
-    this.navCtrl.push(ProductListQuoteDetailPage, item);
+    this.navCtrl.push(
+      ProductListQuoteDetailPage, {
+        id: this.productListDetail.id, 
+        quote: item
+    });
   }
 }

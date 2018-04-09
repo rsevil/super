@@ -73,4 +73,16 @@ export class ProductListApiProvider {
       .subscribe(res => resolve(res.json())));
   }
 
+  getProductListQuoteProducts(productListId, storeId){
+    return new Promise(resolve => 
+      this.http
+      .get(`${this.config.get().api.baseUrl}/productlist/quoteproducts`, {
+        params: { 
+          id: productListId,
+          storeId: storeId
+        } 
+      })
+      .subscribe(res => resolve(res.json())));
+  }
+
 }
