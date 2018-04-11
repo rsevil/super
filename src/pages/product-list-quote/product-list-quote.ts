@@ -41,10 +41,9 @@ export class ProductListQuotePage {
   }
 
   itemTapped($event, item){
+    var detail = this.productListDetail;
+    detail.quote = item;
     this.navCtrl.push(
-      ProductListQuoteDetailPage, {
-        id: this.productListDetail.id, 
-        quote: item
-    });
+      ProductListQuoteDetailPage, detail);
   }
 }

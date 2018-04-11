@@ -2,23 +2,33 @@
     <ion-navbar color="primary">
       <ion-title>Product List Quote Detail</ion-title>
     </ion-navbar>
-    <ion-toolbar color="secondary">
-      <ion-title>{{productListDetail.name}}</ion-title>
-    </ion-toolbar>
   </ion-header>
 
 
 <ion-content>
-    <ion-card class="title" *ngIf="productListDetail">
-      <ion-card-header>
-        Products
-      </ion-card-header>
+  <ion-card class="title" *ngIf="productListDetail">
+    <ion-item>
+      <ion-icon name="cart" item-start></ion-icon>
+      <h2>{{productListDetail.name}}</h2>
+      <div item-end>
+          <ion-icon name="pricetag"></ion-icon>
+          ${{productListDetail.quote.amount}}
+      </div>
+    </ion-item>
+    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png" />
+    <!-- <div #map id="map"></div>  -->
+    <ion-card-content>
+      <ion-card-title>
+            Product Tags
+      </ion-card-title>  
       <ion-list>
         <button ion-item *ngFor="let item of quoteProducts" (tap)="productTapped($event, item)">
+          <ion-icon name="checkmark" item-start></ion-icon>
           {{item.name}}
           <ion-badge item-end>{{item.quantity}} x ${{item.amount}}</ion-badge>
         </button>
       </ion-list>
-    </ion-card>
-  </ion-content>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
     
