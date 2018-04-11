@@ -1,9 +1,8 @@
 <ion-header>
-    <ion-navbar color="primary">
-      <ion-title>Product List Quote Detail</ion-title>
-    </ion-navbar>
-  </ion-header>
-
+  <ion-navbar color="primary">
+    <ion-title>Product List Quote Detail</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
   <ion-card class="title" *ngIf="productListDetail">
@@ -15,11 +14,21 @@
           ${{productListDetail.quote.amount}}
       </div>
     </ion-item>
-    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png" />
-    <!-- <div #map id="map"></div>  -->
+    <div style="position: relative">
+      <div #map id="map"></div> 
+      <ion-fab right top>
+        <button ion-fab class="fab-map" (tap)="navigateTapped()">
+          <ion-icon name="pin"></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+    <ion-item>
+        <span item-right>{{travelDistance}}</span>
+        <span item-right>({{travelTime}})</span>
+    </ion-item>
     <ion-card-content>
       <ion-card-title>
-            Product Tags
+        Product Tags
       </ion-card-title>  
       <ion-list>
         <button ion-item *ngFor="let item of quoteProducts" (tap)="productTapped($event, item)">

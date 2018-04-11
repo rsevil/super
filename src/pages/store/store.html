@@ -7,12 +7,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <div *ngIf="storeDetail">
-    <p><b>{{storeDetail.name}}</b></p>
-    <p><b>{{storeDetail.latitude}}</b></p>
-    <p><b>{{storeDetail.longitude}}</b></p>
-    <p><b>{{storeDetail.address}}</b></p>
+<ion-content>
+    <div *ngIf="storeDetail">
+      <ion-card>
+        <div #map id="map"></div>
+        <ion-item>
+          <ion-icon name="cart" item-start large></ion-icon>
+          <h2>{{storeDetail.name}}</h2>
+          <p>{{storeDetail.address}}</p>
+        </ion-item>
+        <ion-item>
+            <span item-left>{{travelDistance}}</span>
+            <span item-left>({{travelTime}})</span>
+            <button ion-button icon-left clear item-end (tap)="navigateTapped()">
+              <ion-icon name="navigate"></ion-icon>
+              Start
+            </button>
+        </ion-item>
+      </ion-card>
   </div>
-  <div id="map_canvas"></div>
 </ion-content>

@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { Geolocation } from '@ionic-native/geolocation';
-import { GoogleMaps } from '@ionic-native/google-maps';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -66,7 +66,7 @@ import { ProductListQuoteDetailPage } from '../pages/product-list-quote-detail/p
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpModule,
     Geolocation,
-    GoogleMaps,
+    LaunchNavigator,
     StoreChainApiProvider,
     StoreApiProvider,
     ProductApiProvider,

@@ -4,7 +4,7 @@ page-product-list-quote-detail {
 
 #map {
     width: 95vw;
-    height: 90vw;
+    height: 230px;
 }
 
 .ios, .md {
@@ -18,3 +18,8 @@ page-product-list-quote-detail {
       }
     }
   }
+
+button[fab].fab-map {
+  top: calc(100% - 35px);
+  z-index: 50;
+}
